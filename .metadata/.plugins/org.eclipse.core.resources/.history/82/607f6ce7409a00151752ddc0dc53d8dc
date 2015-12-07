@@ -1,0 +1,21 @@
+package br.com.dup.lostlabirinty.listeners;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+/**
+ * Application Lifecycle Listener implementation class ListenerContextSevlet
+ *
+ */
+@WebListener
+public class ListenerContextSevlet implements ServletContextListener {
+
+    /**
+     * Default constructor. 
+     */
+    public ListenerContextSevlet() {
+        // TODO Auto-generated constructor stub
+    }
+	
+}
