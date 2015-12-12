@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="btn-group" role="group" aria-label="btns">
+			<a href="<%=request.getContextPath()%>/pedido" class="btn btn-default">Meus Pedidos</a>
+			<a href="<%=request.getContextPath()%>/listar" class="btn btn-default">Listar</a>
+			<a class="btn btn-default">---</a>
+			<a href="<%=request.getContextPath()%>/login" class="btn btn-default">Sair</a>
+		</div>
+	</div>
+</div>
