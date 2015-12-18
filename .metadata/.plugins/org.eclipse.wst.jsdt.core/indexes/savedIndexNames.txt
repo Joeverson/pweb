@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/prova1/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+918942393.index
+2357781237.index
+308479180.index
+2966005925.index
+3421108909.index
+3855047821.index
+2302855951.index
