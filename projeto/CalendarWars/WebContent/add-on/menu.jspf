@@ -1,0 +1,27 @@
+<div class="demo-layout-transparent mdl-layout mdl-js-layout">
+	<header class="mdl-layout__header mdl-layout__header--transparent">
+		<div class="mdl-layout__header-row">
+			<!-- Title -->
+			<span class="mdl-layout-title"> <a href="<%=request.getContextPath()%>/index.jsp" ><img src="img/img2.png"
+				width="60"> <span class="title-calendar">CalendarWars - Welcome ${ sessionScope.name } </span></a>
+			</span>
+			<!-- Add spacer, to align navigation to the right -->
+			<div class="mdl-layout-spacer"></div>
+			<!-- Navigation -->
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="<%=request.getContextPath()%>/login.jsp">Login</a>
+			</nav>
+		</div>
+	</header>
+	<div class="mdl-layout__drawer">
+		<span class="mdl-layout-title"> <img src="img/img2.png"
+			width="60"> <span class="title-calendar">CalendarWars</span>
+		</span>
+		<nav class="mdl-navigation">
+			<a class="mdl-navigation__link" href="cadastro">Cadastrar</a> <a
+				class="mdl-navigation__link" href="">Link</a> <a
+				class="mdl-navigation__link" href="">Link</a> <a
+				class="mdl-navigation__link" href="">Link</a>
+		</nav>
+	</div>
+	<main class="mdl-layout__content"> 
