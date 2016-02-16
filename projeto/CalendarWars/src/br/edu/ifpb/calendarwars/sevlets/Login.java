@@ -30,18 +30,16 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		try{					
-			UserDAO userdao = new UserDAO();
-			System.out.println("passoi");
+			UserDAO userdao = new UserDAO();			
 			User user = userdao.auth(request.getParameter("login"), request.getParameter("pass"));
-			System.out.println(user.toString());
+				
 			
 			
-			System.out.println(user.getName());
 			if(user != null){
 				HttpSession session = request.getSession();
 				session.setAttribute("name", user.getName());
 				session.setMaxInactiveInterval(20*100);
-				
+				System.out.println("passoi ---- >>>>>");
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}else{

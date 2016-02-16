@@ -9,12 +9,27 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/javax.servlet-3.0.0.v201112011016.jar"/>
-	<classpathentry kind="lib" path="/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar">
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate">
+	<classpathentry kind="lib" path="/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/prova1/hsqldb/lib/hsqldb.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/prova1/hsqldb/lib/sqltool.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hsqldb">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
