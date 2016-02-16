@@ -3,7 +3,7 @@
 		<div class="mdl-layout__header-row">
 			<!-- Title -->
 			<span class="mdl-layout-title"> <a href="<%=request.getContextPath()%>/index.jsp" ><img src="img/img2.png"
-				width="60"> <span class="title-calendar">CalendarWars - Welcome ${ sessionScope.name } </span></a>
+				width="60"> <span class="title-calendar">CalendarWars - Welcome ${ sessionScope.user.name } </span></a>
 			</span>
 			<!-- Add spacer, to align navigation to the right -->
 			<div class="mdl-layout-spacer"></div>
@@ -18,10 +18,9 @@
 			width="60"> <span class="title-calendar">CalendarWars</span>
 		</span>
 		<nav class="mdl-navigation">
-			<a class="mdl-navigation__link" href="cadastro">Cadastrar</a> <a
-				class="mdl-navigation__link" href="">Link</a> <a
-				class="mdl-navigation__link" href="">Link</a> <a
-				class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="cadastro">Cadastrar</a> 
+			<a class="mdl-navigation__link" href="admin">Admin</a> 
+			<a class="mdl-navigation__link" href="logout">Sair</a> 
 		</nav>
 	</div>
 	<main class="mdl-layout__content"> 

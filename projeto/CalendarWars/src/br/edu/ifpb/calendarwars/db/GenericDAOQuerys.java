@@ -2,20 +2,17 @@ package br.edu.ifpb.calendarwars.db;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 
-import antlr.collections.List;
-import br.edu.ifpb.calendarwars.entities.User;
 
 public class GenericDAOQuerys<T, PK extends Serializable> implements GenericDAO<T, PK>{
 	
 	protected Class<T> entityClass;
 	protected EntityManager e;
 	
-	public GenericDAOQuerys() {
-		this.e = CoreDB.Instance();
+	public GenericDAOQuerys(EntityManager instance) {
+		this.e = instance;
 		
 		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
 		this.entityClass = (Class<T>) genericSuperclass.getActualTypeArguments()[0];

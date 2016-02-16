@@ -3,6 +3,7 @@ package br.edu.ifpb.calendarwars.sevlets;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,16 +31,16 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		try{					
-			UserDAO userdao = new UserDAO();			
+			UserDAO userdao = new UserDAO((EntityManager) request.getAttribute("instanceDB"));			
 			User user = userdao.auth(request.getParameter("login"), request.getParameter("pass"));
 				
-			
+			System.out.println(user.getName());
 			
 			if(user != null){
 				HttpSession session = request.getSession();
-				session.setAttribute("name", user.getName());
+				session.setAttribute("user", user);
 				session.setMaxInactiveInterval(20*100);
-				System.out.println("passoi ---- >>>>>");
+				
 				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
 				rd.forward(request, response);
 			}else{

@@ -1,9 +1,7 @@
 package br.edu.ifpb.calendarwars.db;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
 import br.edu.ifpb.calendarwars.entities.User;
@@ -11,14 +9,19 @@ import antlr.collections.List;
 
 public class UserDAO extends GenericDAOQuerys<User, Long>{
 	//todo fazer um search melhor		
-		public User auth(String login, String pass){					
-			System.out.println("gravou");  
-			Query q = e.createQuery("from Turma t where t.pass = :pass and t.name= :login");
-			 
-			 q.setParameter(":pass", pass);
-			 q.setParameter(":login", pass);
-			 System.out.println(e.toString());	
-			 return (User) q.getResultList().get(0);			 
+		public UserDAO(EntityManager instance){
+			super(instance);
+		}
+		public User auth(String login, String pass){		
+			
+			try{
+				Query q = e.createQuery("select t from User t where t.pass = '"+pass+"' and t.user= '"+login+"'");				
+				return (User) q.getSingleResult();				
+			}catch(NoResultException e){
+				System.out.println("erro na autenticação");
+				e.getMessage();
+				return null;
+			}	
 		}
 		
 		//select
