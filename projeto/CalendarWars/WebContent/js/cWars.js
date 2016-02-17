@@ -31,15 +31,19 @@ cWars.prototype.days = function(callback){
 
 cWars.prototype.generator = function (callback) {
     var cal = "";    // Usado para imprimir na tela
+    var day = 0;
+    var i = 0;
+    
     for(index=0; index < this.DAYS_OF_MONTH; index++){
         if( this.calendar.getDate() > index ){
             this.week_day = this.calendar.getDay();
 
             //if(this.week_day == 0) callback.call(0, {"week": "this", "day": "this", "this": false}); //momento onde ha queba de dias no mês
-
+            console.log(i++);
+            i++;
             if(this.week_day != this.DAYS_OF_WEEK){
-                var day  = this.calendar.getDate();
-
+                day  = this.calendar.getDate();
+                               
                 if( this.today == this.calendar.getDate() )
                     callback.call(0, {"week": this.day_of_week[this.week_day], "day": day, "this": true});
                 else
@@ -49,4 +53,6 @@ cWars.prototype.generator = function (callback) {
         }
         this.calendar.setDate(this.calendar.getDate()+1);
     }
+    
+    //callback.call(0, {"week": this.day_of_week[this.week_day], "day": (i/2)});
 };

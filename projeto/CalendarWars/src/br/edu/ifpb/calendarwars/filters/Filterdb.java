@@ -9,13 +9,15 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import br.edu.ifpb.calendarwars.db.CoreDB;
 
 /**
  * Servlet Filter implementation class Filterdb
  */
-@WebFilter(urlPatterns={"*.jsp", "/cadastro", "/login"})
+@WebFilter(urlPatterns={"*.jsp", "/cadastro", "/login", "/date"})
 public class Filterdb implements Filter {
 
    public void destroy() {
@@ -23,7 +25,8 @@ public class Filterdb implements Filter {
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		request.setAttribute("instanceDB", CoreDB.Instance());
+		HttpSession session = ((HttpServletRequest) request).getSession();		
+		session.setAttribute("instanceDB", CoreDB.Instance());
 		chain.doFilter(request, response);		
 	}
 

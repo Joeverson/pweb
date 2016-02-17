@@ -25,9 +25,11 @@ public class Cadastrar extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try{
+			HttpSession session = request.getSession(); 
+			
 			if(!request.getParameter("name").isEmpty() && !request.getParameter("login").isEmpty() && !request.getParameter("pass").isEmpty()){				
 				User user = new User();	
-				UserDAO userdao = new UserDAO((EntityManager) request.getAttribute("instanceDB"));					
+				UserDAO userdao = new UserDAO((EntityManager) session.getAttribute("instanceDB"));					
 				
 				user.setName(request.getParameter("name"));
 				user.setUser(request.getParameter("login"));
@@ -35,7 +37,6 @@ public class Cadastrar extends HttpServlet {
 				
 				userdao.insert(user);
 				
-				HttpSession session = request.getSession();
 				session.setAttribute("name", user);
 				session.setMaxInactiveInterval(20*100);
 				

@@ -30,18 +30,18 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		HttpSession session = request.getSession();
 		try{					
-			UserDAO userdao = new UserDAO((EntityManager) request.getAttribute("instanceDB"));			
+			UserDAO userdao = new UserDAO((EntityManager) session.getAttribute("instanceDB"));			
 			User user = userdao.auth(request.getParameter("login"), request.getParameter("pass"));
 				
 			System.out.println(user.getName());
 			
 			if(user != null){
-				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				session.setMaxInactiveInterval(20*100);
 				
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("admin.jsp");
 				rd.forward(request, response);
 			}else{
 				request.setAttribute("error", "Usuario ou senha incorretas");

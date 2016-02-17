@@ -47,11 +47,11 @@
 		cwars.alterDate($(".meses").val(), $(".years").val());
 		$(".model").html("");
 		date();
+		//window.location.href="<%=request.getContextPath()%>/date?y="+$(".years").val()+"&m="+$(".meses").val();
 	});
 	
 	
-	
-	function date(){
+	function popularDates(){
 		cwars.days(function(a, b) {
 			$(".years").append('<option value="'+a+'">' + a + '</option>');
 		});
@@ -59,7 +59,11 @@
 		cwars.mounths(function(a, b) {
 			$(".meses").append('<option value="'+a+'">' + a + '</option>');
 		});
-
+	}
+	
+	
+	function date(){
+		popularDates();
 		cwars.generator(function(a, b) {
 					$(".model")
 							.append(
@@ -78,6 +82,8 @@
 											+
 
 											'</div>' + '</div>' + '</div>');
+					
+				
 				});
 	}
 </script>

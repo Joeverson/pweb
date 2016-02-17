@@ -11,7 +11,7 @@ public class GenericDAOQuerys<T, PK extends Serializable> implements GenericDAO<
 	protected Class<T> entityClass;
 	protected EntityManager e;
 	
-	public GenericDAOQuerys(EntityManager instance) {
+	public GenericDAOQuerys(EntityManager instance) {		
 		this.e = instance;
 		
 		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
@@ -21,6 +21,7 @@ public class GenericDAOQuerys<T, PK extends Serializable> implements GenericDAO<
 	//create
 	public T insert(T user){
 		try{
+			System.out.println(e);
 			e.getTransaction().begin();
 			e.persist(user);
 			e.getTransaction().commit();	
