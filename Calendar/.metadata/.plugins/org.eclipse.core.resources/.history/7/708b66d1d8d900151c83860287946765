@@ -1,0 +1,42 @@
+package br.edu.ifpb.tsi.pweb.servlets;
+
+
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Index
+ */
+@WebServlet("/refresh")
+public class refresh extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+ 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Calendar c = Calendar.getInstance();
+		Map m = new HashMap<String, Calendar>();
+		
+		for(int i=0; i < c.getActualMaximum(Calendar.DAY_OF_MONTH); i++){
+			
+		}
+		
+		RequestDispatcher r = request.getRequestDispatcher("index.jsp");
+		r.forward(request, response);
+	}
+	
+	public static void main(String[] args) {
+		Calendar c = Calendar.getInstance();
+		
+		System.out.println(c.get(Calendar.DATE));
+	}
+
+}

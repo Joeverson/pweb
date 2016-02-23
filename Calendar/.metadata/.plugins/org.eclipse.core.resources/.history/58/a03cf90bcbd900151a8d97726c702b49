@@ -1,0 +1,15 @@
+package br.edu.ifpb.calendarwars.db;
+
+import javax.persistence.EntityManager;
+
+import org.jboss.logging.Logger;
+
+import br.edu.ifpb.calendarwars.entities.CalendarGeral;
+
+public class CalendarDAO extends GenericDAOJPAImpl<CalendarGeral, Long>{
+	private static Logger logger = Logger.getLogger(CalendarDAO.class);
+	
+	public CalendarDAO(EntityManager instance){
+		super(instance);
+	}	
+}

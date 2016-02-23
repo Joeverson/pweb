@@ -1,0 +1,43 @@
+package br.edu.ifpb.tsi.pweb.servlets;
+
+
+
+import java.io.IOException;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import br.edu.ifpb.tsi.pweb.model.Holydays;
+
+/**
+ * Servlet implementation class Index
+ */
+@WebServlet("/refresh")
+public class refresh extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+ 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		request.setAttribute("calendar", m);
+		
+		RequestDispatcher r = request.getRequestDispatcher("index.jsp");
+		r.forward(request, response);
+	}
+
+	public static void main(String[] args) {
+		Calendar c = Calendar.getInstance();
+		c.set(1995,Calendar.MARCH, 20); 
+		
+		Holydays h = new Holydays("oi", "asdoaisd", c);
+			
+		System.out.println("Data/Hora atual: "+h.getDate().getTime());
+		
+	}
+}

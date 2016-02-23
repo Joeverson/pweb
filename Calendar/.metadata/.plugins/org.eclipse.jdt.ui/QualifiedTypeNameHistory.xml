@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="br.edu.ifpb.calendarwars.entities.CalendarGeral"/>
+<fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+<fullyQualifiedTypeName name="javax.persistence.Column"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.dao.ManagedEMContext"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.model.CalendarNote"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.dao.CalendarNotesDAO"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.model.User"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.model.CalendarGeral"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.dao.CalendarDAO"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.dao.PersistenceUtil"/>
+<fullyQualifiedTypeName name="br.edu.ifpb.tsi.pweb.dao.UserDAO"/>
+<fullyQualifiedTypeName name="org.apache.catalina.User"/>
+</qualifiedTypeNameHistroy>
