@@ -1,0 +1,41 @@
+package br.edu.ifpb.tsi.pweb.dao;
+
+
+import javax.persistence.*;
+import org.jboss.logging.Logger;
+
+
+public class PersistenceUtil {
+
+    private static EntityEntryFactory emf;
+    private static ManagedEMContext emc;
+	private static Logger logger = Logger.getLogger(PersistenceUtil.class);
+
+    static {
+       
+    }
+
+    public static EntityEntryFactory getEntityManagerFactory() {
+    	 if(emf == null){
+    		 try {
+    	     		emf = Persistence.createEntityManagerFactory("calendarwars");
+    	     		System.out.println("aqui to");	
+    	     		emc = new ManagedEMContext(emf);
+    	             logger.info("F�brica de EntityManagers constru�da.");
+    	         } catch (Exception ex) {
+    	             logger.error("Falha ao criar EntityManagerFactory.", ex);
+    	             //throw new ExceptionInInitializerError(ex);
+    	         }
+    	 }
+    	 
+        return emf;
+    }
+    
+    public static EntityManager getCurrentEntityManager() {
+    	return emc.currentEntityManager();
+    }
+    
+    public static EntityManager getEntityManager() {
+    	return emf.createEntityManager();
+    }
+}

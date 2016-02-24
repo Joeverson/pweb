@@ -1,0 +1,5 @@
+package br.edu.ifpb.tsi.pweb.model;
+
+public interface CalendarWars {
+
+}

@@ -1,0 +1,78 @@
+package br.edu.ifpb.tsi.pweb.model;
+
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+
+@Entity
+public class CalendarNote{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int id;
+	@OneToMany
+	private String date;
+	@Column
+	private String note;	
+	@OneToOne(cascade=CascadeType.ALL)
+	private User user;
+	
+	
+	public CalendarNote(String date, String note, User user) {
+		this.date = date;
+		this.note = note;		
+		this.user = user;
+	}
+
+
+	public String getNote() {
+		return note;
+	}
+
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public String getDay() {
+		return this.date;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getDate() {
+		return date;
+	}
+
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
+}

@@ -1,0 +1,79 @@
+package br.edu.ifpb.tsi.pweb.servlets;
+
+import java.io.IOException;
+import java.util.Calendar;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import br.edu.ifpb.tsi.pweb.dao.CalendarDAO;
+import br.edu.ifpb.tsi.pweb.dao.PersistenceUtil;
+import br.edu.ifpb.tsi.pweb.model.Holydays;
+import br.edu.ifpb.tsi.pweb.model.User;
+
+
+/**
+ * Servlet implementation class Calendar
+ */
+@WebServlet("/calendar")
+public class Calendars extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		RequestDispatcher r;
+		
+		if(session.getAttribute("user") == null)
+			r = request.getRequestDispatcher("login.jsp");
+		else
+			r = request.getRequestDispatcher("calendar.jsp");
+		
+		r.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String date = request.getParameter("date");	
+		String[] dateArray = date.split("-");
+		
+		Calendar c = Calendar.getInstance();
+		//c.set(dateArray[0], dateArray[1], dateArray[2]);
+		
+		
+		String note = request.getParameter("note");
+		String type = request.getParameter("type");
+				
+				
+		HttpSession session = request.getSession();
+		
+		if(((User) session.getAttribute("user")) == null){
+			request.setAttribute("error", "ERRO: ao gravar a nota");
+			
+		}else{			
+			Holydays h = new Holydays(type,note,c);
+			CalendarDAO DAO = new CalendarDAO(PersistenceUtil.getCurrentEntityManager());
+			//DAO.insert(h);
+		}
+		
+		
+		RequestDispatcher r = request.getRequestDispatcher("admin.jsp");
+		r.forward(request, response);
+	}
+
+	public static void main(String[] args) {
+		String str = "2016-02-23";
+		String[] s = str.split("-",10);
+		
+		Calendar c = Calendar.getInstance();
+		
+		c.set(s[0],s[2],s[2]);
+		
+		System.out.println(s[0]+"\n");
+		System.out.println(s[1]+"\n");
+		System.out.println(s[2]+"\n");
+	}
+}

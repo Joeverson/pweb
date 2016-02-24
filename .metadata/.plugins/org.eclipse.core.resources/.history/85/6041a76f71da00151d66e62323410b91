@@ -1,0 +1,76 @@
+package br.edu.ifpb.tsi.pweb.servlets;
+
+
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import antlr.collections.List;
+import br.edu.ifpb.tsi.pweb.model.CalendarWars;
+import br.edu.ifpb.tsi.pweb.model.Holydays;
+
+/**
+ * Servlet implementation class Index
+ */
+@WebServlet("/refresh")
+public class refresh extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+ 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Calendar m = Calendar.getInstance();
+		request.setAttribute("calendar", m);
+		
+		RequestDispatcher r = request.getRequestDispatcher("index.jsp");
+		r.forward(request, response);
+	}
+
+	public static void main(String[] args) {
+		String date = "2016-02-23";	
+		String[] dateArray = date.split("-");
+		
+		//preparando o objedo calendar com a data recebida.
+		Calendar c = Calendar.getInstance();
+		c.set(Integer.valueOf(dateArray[0]), Integer.valueOf(dateArray[1]), Integer.valueOf(dateArray[2]));
+		 
+		Map mounth = new HashMap<String, CalendarWars>();
+		
+		//cria o calendario dea acordo com o mes escolhido
+		for(int i=0; i < c.getActualMaximum(Calendar.DAY_OF_MONTH); i++){
+			mounth.put(String.valueOf((i+1)), new Holydays());
+			System.out.println(new Holydays());
+		}
+		
+		//adicionando o mes do banco no hash
+		Calendar dateNew = Calendar.getInstance();
+		dateNew.set(2014,Calendar.AUGUST,28);
+		
+		Holydays h = new Holydays("fixo","casa da veia", dateNew);
+		
+		//Criando a lista com os calendarios a serem colocados no mes corrente escolhido
+		ArrayList<CalendarWars> clw = new ArrayList<CalendarWars>();
+		clw.add(h);
+		
+		///colocando as datas no calendario recem gerado
+		for (CalendarWars cl: clw){			
+			mounth.put(String.valueOf(cl.getDate().get(Calendar.DAY_OF_MONTH)), cl);
+		}
+		
+		
+		
+		//System.out.println(mounth.get(5).toString()); 
+
+		
+	}
+}

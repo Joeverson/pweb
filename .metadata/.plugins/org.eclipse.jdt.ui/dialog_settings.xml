@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="/home/dragonshit/Documents/Copy/TSI/P5/PWEBII/hibernate-search-5.5.2.Final/dist/lib/optional/jpa" key="org.eclipse.jdt.ui.lastextjar"/>
+	<section name="SourceActionDialog.methods">
+		<item value="false" key="SynchronizedModifier"/>
+		<item value="false" key="Comments"/>
+		<item value="1" key="VisibilityModifier"/>
+		<item value="false" key="FinalModifier"/>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item value="9" key="index"/>
+	</section>
+	<section name="NewPackageWizardPage">
+		<item value="false" key="create_package_info_java"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
+		<item value="509" key="DIALOG_WIDTH"/>
+		<item value="1|Droid Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="700" key="DIALOG_HEIGHT"/>
+		<item value="430" key="DIALOG_X_ORIGIN"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="AddGetterSetterDialog">
+		<item value="false" key="SortOrdering"/>
+		<item value="false" key="RemoveFinal"/>
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+</section>
